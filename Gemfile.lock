@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/neon-bindings/jekyll-theme
-  revision: 7e05ba989a7f1f4b0001425aef356517c66fefa5
+  revision: bac0e829c91521431909798a479a6440ec9d47ea
   branch: master
   specs:
     neon-bindings-jekyll-theme (0.1.0)

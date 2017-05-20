@@ -25,6 +25,8 @@ github_username:  dherman
 
 # Build settings
 markdown: kramdown
+kramdown:
+  parse_block_html: true
 theme: neon-bindings-jekyll-theme
 gems:
   - jekyll-feed
