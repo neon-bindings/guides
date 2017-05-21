@@ -91,7 +91,7 @@ Most modern Unix systems, like Linux or FreeBSD, should have the required develo
 <script>
 $(function() {
   if (!navigator.platform.startsWith("Win") && !navigator.platform.startsWith("Mac"))
-    $('#macos-installation-instructions').toggleClass('toggle-disabled');
+    $('#generic-installation-instructions').toggleClass('toggle-disabled');
 })
 </script>
 
