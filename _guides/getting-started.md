@@ -7,7 +7,7 @@ nav-order: 0
 
 # Getting Started
 
-This guide will help you get set up to build a project with Neon. If you already have everything installed and are looking to write your first Neon code, try the [Hello, World!](../hello-world/) guide.
+This guide will help you get your system set up for building Neon projects. If you already have everything installed and are looking to write your first Neon code, try the [Hello, World!](../hello-world/) guide.
 
 ## Install Node
 
