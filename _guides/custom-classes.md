@@ -2,7 +2,7 @@
 layout: guide
 title: The Neon Project - Custom Classes
 nav-title: Custom Classes
-nav-order: 3
+nav-order: 4
 ---
 
 # Custom Classes

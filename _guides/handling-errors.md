@@ -2,7 +2,7 @@
 layout: guide
 title: The Neon Project - Handling Errors
 nav-title: Handling Errors
-nav-order: 4
+nav-order: 5
 ---
 
 # Handling Errors

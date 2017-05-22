@@ -2,7 +2,7 @@
 layout: guide
 title: The Neon Project - Using Threads
 nav-title: Using Threads
-nav-order: 5
+nav-order: 6
 ---
 
 # Using Threads

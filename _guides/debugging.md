@@ -2,7 +2,7 @@
 layout: guide
 title: The Neon Project - Debugging
 nav-title: Debugging
-nav-order: 6
+nav-order: 7
 ---
 
 # Debugging
