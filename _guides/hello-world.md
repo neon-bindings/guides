@@ -7,7 +7,7 @@ nav-order: 1
 
 # Hello, World!
 
-This guide will walk you through writing, building, and running your first Neon project. We'll try to walk you through each step carefully, but if you want to skip ahead, you can always go straight to the [full demo](.) in the examples repository.
+This guide will walk you through writing, building, and running your first Neon project. We'll try to walk you through each step carefully, but if you want to skip ahead, you can always go straight to the [full demo](https://github.com/neon-bindings/examples/tree/master/guides/hello-world/threading-hint) in the examples repository.
 
 Our first project will be a tiny module that returns a number indicating how much hardware multithreading the current machine supports. If you're not familiar with multithreading, don't panic! We'll be using [Sean McArthur](http://seanmonstar.com/)'s [num_cpus](https://crates.io/crates/num_cpus) library to do all the heavy lifting for us, and we'll just return the number it gives us.
 
@@ -40,13 +40,30 @@ The first thing to notice about this layout is that **a Neon project is a Node p
 
 > Node on the outside, Rust on the inside.
 
+The front-end of a Neon package is a pure JavaScript module (`lib/index.js`, by default), and the back-end is a native library implemented as a Rust crate. The Rust crate lives in the `native/` subdirectory of the project.
+
 # Building and Running
 
-We haven't yet implemented anything, but just to see that `neon new` produced a complete, minimal Neon project, let's try building and running it.
+We haven't yet implemented anything, but just to see that `neon new` produced a complete, minimal Neon project, let's try building it:
 
 ```shell
 $ neon build
-# build output...
+```
+
+The build process generates a handful of files that you don't need to work with directly:
+
+  * `native/index.node`: the native module itself, which is loaded by `lib/index.js`.
+  * `native/target` and `native/artifacts.json`: cached build results, which makes rebuilds faster.
+
+An easy way to clean up build artifacts is to run:
+
+```shell
+$ neon clean
+```
+
+Once we've built the project, we can try running it:
+
+```shell
 $ node
 > require('.')
 hello node
@@ -55,13 +72,13 @@ hello node
 
 # Adding a Rust dependency
 
-The next thing to notice about our `threading-hint` project layout is that the Rust implementation lives in the `native/` subdirectory. This is where the `Cargo.toml` manifest file for your Rust code lives. Let's add a Rust dependency on the [num_cpus](https://crates.io/crates/num_cpus) crate ("crate" is just Rust terminology for a package). In `native/Cargo.toml`, under the `[dependencies]` section, add the following line:
+Let's add a Rust dependency on the [num_cpus](https://crates.io/crates/num_cpus) crate. In `native/Cargo.toml`, under the `[dependencies]` section, add the following line:
 
 ```toml
 num_cpus = "1.4.0"
 ```
 
-This adds a dependency on any version of the `num_cpus` crate that is semver-compatible with `1.4.0`. (The `package.json` equivalent would be `"num_cpus": "^1.4.0"`.)
+This tells Cargo, Rust's build tool, to fetch a version of the `num_cpus` crate that is semver-compatible with `1.4.0`. (The `package.json` equivalent would be `"num_cpus": "^1.4.0"`.)
 
 # Implementing our Function
 
@@ -97,7 +114,7 @@ register_module!(m, {
 
 This tells Neon to initialize the module when it's first loaded by creating a JavaScript function implemented with the `threading_hint` function we defined above and exporting it as a module property named `"threading_hint"`.
 
-You can see the full [`lib.rs`](.) file in the examples repository.
+You can see the full [`lib.rs`](https://github.com/neon-bindings/examples/blob/master/guides/hello-world/threading-hint/native/src/lib.rs) file in the examples repository.
 
 # Exporting our Function
 
