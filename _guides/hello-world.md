@@ -82,7 +82,7 @@ This tells Cargo, Rust's build tool, to fetch a version of the `num_cpus` crate 
 
 # Implementing our Function
 
-Now let's edit the Rust code to make use of the new dependency. First we have to declare the use of the the `num_cpus` crate:
+Now let's edit the Rust code to make use of the new dependency. First, in `native/src/lib.rs`, we have to declare the use of the the `num_cpus` crate: 
 
 ```rust
 extern crate num_cpus;
@@ -118,7 +118,7 @@ You can see the full [`lib.rs`](https://github.com/neon-bindings/examples/blob/m
 
 # Exporting our Function
 
-Now that the Rust code is implemented, all we have left to do is export it from the project's public module. The native module exported a `threading_hint` property, so we'll just make that function our entire public module:
+Now that the Rust code is implemented, all we have left to do is export it from the project's public module. The native module exported a `threading_hint` property, so we'll just make that function our entire public module inside the `lib/index.js` file:
 
 ```js
 var addon = require('../native');
