@@ -118,7 +118,7 @@ You can see the full [`lib.rs`](https://github.com/neon-bindings/examples/blob/m
 
 # Exporting our Function
 
-Now that the Rust code is implemented, all we have left to do is export it from the project's public module. The native module exported a `threading_hint` property, so we'll just make that function our entire public module:
+Now that the Rust code is implemented, all we have left to do is export it from the project's public module. The native module exported a `threading_hint` property, so we'll just make that function our entire public module inside the `lib/index.js` file:
 
 ```js
 var addon = require('../native');
