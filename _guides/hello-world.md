@@ -82,7 +82,7 @@ This tells Cargo, Rust's build tool, to fetch a version of the `num_cpus` crate 
 
 # Implementing our Function
 
-Now let's edit the Rust code to make use of the new dependency. First, in `native/src/lib.rs`, we have to declare the use of the the `num_cpus` crate. Add in: 
+Now let's edit the Rust code to make use of the new dependency. First, in `native/src/lib.rs`, we have to declare the use of the the `num_cpus` crate: 
 
 ```rust
 extern crate num_cpus;
