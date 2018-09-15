@@ -101,7 +101,7 @@ fn threading_hint(call: Call) -> JsResult<JsNumber> {
 A few more things to note about this code:
 
   * The `call` argument to `threading_hint`: this contains information about the function call, such as the arguments and the value of `this`.
-  * The [`JsResult`](https://api.neon-bindings.com/neon/vm/type.jsresult) output type: this is a Rust [`Result`](https://doc.rust-lang.org/std/result/enum.Result.html) type that indicates whether the function returned (`Ok`) or threw a JavaScript exception (`Err`). You can learn more in the [Handling Errors](../handling-errors) guide. It also tracks the lifetime of the returned _handle_. You can read more about handles in the [Handles and Memory](../handles-and-memory/) guide.
+  * The [`JsResult`](https://api.neon-bindings.com/neon/result/type.jsresult) output type: this is a Rust [`Result`](https://doc.rust-lang.org/std/result/enum.Result.html) type that indicates whether the function returned (`Ok`) or threw a JavaScript exception (`Err`). You can learn more in the [Handling Errors](../handling-errors) guide. It also tracks the lifetime of the returned _handle_. You can read more about handles in the [Handles and Memory](../handles-and-memory/) guide.
   * The `call.scope` argument to `JsNumber::new()`: this tells the JavaScript garbage collector that we need to keep the value we allocate alive long enough to return it to the caller of `threading_hint`. You can learn more about memory management in the [Handles and Memory](../handles-and-memory/) guide.
 
 Finally, we'll modify the code that `neon new` created for us to set up the module exports with this function instead of the initial "hello world" function it created for us:
